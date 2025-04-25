@@ -1,0 +1,13 @@
+# Node.js (caso use npm ou yarn no frontend)
+node_modules/
+.env
+*.log
+dist/
+build/
+# VSCode
+.vscode/
+# OS
+.DS_Store
+Thumbs.db
+# Outros
+coverage/

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JáVí - Tudo que você viu, num só lugar.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-6">
+        <header class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+            <a href="index.html" class="flex items-center gap-4 group focus:outline-none">
+                <img src="images/logo.png" alt="Logo JáVí" class="h-16 w-16 cursor-pointer group-hover:scale-105 transition-transform">
+                <h1 class="text-3xl font-bold text-gray-800 cursor-pointer group-hover:text-yellow-500 transition-colors">
+                    JáVí <span class="block text-base font-normal text-gray-500">Tudo que você viu, num só lugar.</span>
+                </h1>
+            </a>
+            <a href="index.html" class="px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold rounded shadow transition">Voltar para Lista</a>
+        </header>
+        <main>
+            <div class="mb-6 flex justify-center">
+                <input type="text" id="busca" placeholder="Buscar filme..." class="w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400">
+            </div>
+            <div id="lista-filmes" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Os filmes serão inseridos aqui via JavaScript -->
+                <div class="loading col-span-full text-center text-gray-500">Carregando filmes...</div>
+            </div>
+        </main>
+        <footer class="mt-12 text-center text-gray-400 text-sm">
+            <p>&copy; 2023 - Aplicação de Filmes Assistidos</p>
+        </footer>
+    </div>
+    <template id="template-filme">
+        <div class="card-filme bg-white rounded-lg shadow p-4 flex flex-col gap-2 hover:shadow-lg transition">
+            <div class="filme-imagem flex justify-center">
+                <img src="" alt="Poster do filme" class="rounded h-48 object-cover w-full">
+            </div>
+            <div class="filme-info">
+                <h3 class="filme-titulo text-lg font-semibold text-gray-800"></h3>
+                <p class="filme-genero text-sm text-gray-500"></p>
+                <p class="filme-ano text-sm text-gray-400"></p>
+                <div class="filme-nota flex items-center gap-2 mt-1">
+                    <span class="estrelas text-yellow-400"></span>
+                    <span class="valor-nota text-xs text-gray-600"></span>
+                </div>
+                <div class="filme-status mt-1">
+                    <span class="assistido text-xs font-medium"></span>
+                </div>
+                <div class="filme-acoes flex gap-2 mt-2">
+                    <a href="#" class="btn btn-info btn-detalhes px-2 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 text-xs">Detalhes</a>
+                    <a href="#" class="btn btn-edit btn-editar px-2 py-1 bg-green-100 text-green-700 rounded hover:bg-green-200 text-xs">Editar</a>
+                    <button class="btn btn-danger btn-excluir px-2 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 text-xs">Excluir</button>
+                </div>
+            </div>
+        </div>
+    </template>
+    <div id="modal-confirmacao" class="modal fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50 hidden">
+        <div class="modal-content bg-white rounded-lg shadow-lg p-6 w-full max-w-sm">
+            <h3 class="text-lg font-bold mb-2">Confirmar Exclusão</h3>
+            <p class="mb-4">Tem certeza que deseja excluir este filme?</p>
+            <div class="modal-acoes flex gap-2 justify-end">
+                <button id="confirmar-exclusao" class="btn btn-danger px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">Sim, excluir</button>
+                <button id="cancelar-exclusao" class="btn px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="js/script.js"></script>
+</body>
+
+</html>

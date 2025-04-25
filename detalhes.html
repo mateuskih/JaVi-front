@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JáVí - Tudo que você viu, num só lugar.</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-6">
+        <header class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+            <a href="index.html" class="flex items-center gap-4 group focus:outline-none">
+                <img src="images/logo.png" alt="Logo JáVí" class="h-16 w-16 cursor-pointer group-hover:scale-105 transition-transform">
+                <h1 class="text-3xl font-bold text-gray-800 cursor-pointer group-hover:text-yellow-500 transition-colors">
+                    JáVí <span class="block text-base font-normal text-gray-500">Tudo que você viu, num só lugar.</span>
+                </h1>
+            </a>
+            <a href="index.html" class="px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold rounded shadow transition">Voltar para Lista</a>
+        </header>
+
+        <main>
+            <div class="detalhes-container bg-white rounded-lg shadow p-6 max-w-2xl mx-auto">
+                <div class="loading text-center text-gray-500 mb-4">Carregando detalhes do filme...</div>
+                <div id="detalhes-filme" style="display: none;" class="space-y-6">
+                    <div class="filme-header flex flex-col md:flex-row gap-6 items-center">
+                        <div class="filme-poster flex-shrink-0">
+                            <img id="filme-imagem" src="" alt="Poster do filme" class="rounded-lg h-60 w-40 object-cover">
+                        </div>
+                        <div class="filme-info-principal flex-1">
+                            <h2 id="filme-titulo" class="text-2xl font-bold text-gray-800 mb-2"></h2>
+                            <div class="filme-meta flex gap-4 text-gray-500 mb-2">
+                                <p id="filme-genero"></p>
+                                <p id="filme-ano"></p>
+                            </div>
+                            <div class="filme-avaliacao flex items-center gap-2 mb-2">
+                                <div class="filme-nota flex items-center gap-1">
+                                    <span class="estrelas text-yellow-400" id="filme-estrelas"></span>
+                                    <span class="valor-nota text-xs text-gray-600" id="filme-nota"></span>
+                                </div>
+                                <div class="filme-status ml-4">
+                                    <span id="filme-assistido" class="text-xs font-medium"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filme-acoes flex gap-2 justify-end">
+                        <a id="btn-editar" href="#" class="btn btn-edit px-4 py-2 bg-green-100 text-green-700 rounded hover:bg-green-200 text-xs">Editar</a>
+                        <button id="btn-excluir" class="btn btn-danger px-4 py-2 bg-red-100 text-red-700 rounded hover:bg-red-200 text-xs">Excluir</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="mt-12 text-center text-gray-400 text-sm">
+            <p>&copy; 2023 - Aplicação de Filmes Assistidos</p>
+        </footer>
+    </div>
+
+    <div id="modal-confirmacao" class="modal fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50 hidden">
+        <div class="modal-content bg-white rounded-lg shadow-lg p-6 w-full max-w-sm">
+            <h3 class="text-lg font-bold mb-2">Confirmar Exclusão</h3>
+            <p class="mb-4">Tem certeza que deseja excluir este filme?</p>
+            <div class="modal-acoes flex gap-2 justify-end">
+                <button id="confirmar-exclusao" class="btn btn-danger px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">Sim, excluir</button>
+                <button id="cancelar-exclusao" class="btn px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/detalhes.js"></script>
+</body>
+
+</html>
