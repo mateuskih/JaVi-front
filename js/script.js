@@ -114,11 +114,13 @@ function filtrarFilmes() {
 
 function abrirModalExclusao(filme) {
     filmeParaExcluir = filme;
+    modalConfirmacao.classList.remove('hidden');
     modalConfirmacao.classList.add('active');
 }
 
 function fecharModal() {
     modalConfirmacao.classList.remove('active');
+    modalConfirmacao.classList.add('hidden');
     filmeParaExcluir = null;
 }
 

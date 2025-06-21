@@ -72,7 +72,13 @@ function exibirMensagem(texto, tipo) {
     mensagem.textContent = texto;
 
     const formContainer = document.querySelector('.form-container');
-    formContainer.insertBefore(mensagem, form);
+    if (formContainer && form) {
+        formContainer.insertBefore(mensagem, form);
+    } else if (formContainer) {
+        formContainer.appendChild(mensagem);
+    } else {
+        document.body.appendChild(mensagem);
+    }
 
     if (tipo === 'sucesso') {
         setTimeout(() => {
